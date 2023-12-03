@@ -1,7 +1,6 @@
 let playerScore = 0
 let computerScore = 0
 let draws = 0
-const playerChoice = "rock";
 let gameOptions = ["rock", "paper", "scissors"]
 // Get computers choice
 function getComputerChoice(){
@@ -47,22 +46,29 @@ else if(playerChoice === "scissors"){
 
 //function to play multiple rounds
 function game(){
-for (var i= 0; i<5; i++){
-let computerChoice = getComputerChoice();
+//for (var i= 0; i<5; i++)
+while (playerScore < 5 && computerScore < 5 ){
+let computerChoice = getComputerChoice();{
+let playerChoice = (prompt("Please pick Rock, Paper, or Scissors").toLowerCase())
 console.log(playRound(computerChoice, playerChoice));
+console.log(computerChoice)
+console.log("Draws " + draws)
+console.log("Player Score " + playerScore)
+console.log("Computer Score " +computerScore)
+
+if (playerScore === 5){
+    console.log("You are the Winner")
+    } else if (computerScore === 5)
+        console.log("GG Loser")
 }
-if (playerScore > computerScore){
-    return ("You Win");
-} else{
-    return ("GG Loser");
+}
 }
 
-}
 
 game()
-console.log(draws)
-console.log(playerScore)
-console.log(computerScore)
+//console.log("Draws " + draws)
+//console.log("Player Score " + playerScore)
+//console.log("Computer Score " +computerScore)
 
 
 
