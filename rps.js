@@ -66,9 +66,7 @@ if (playerScore === 5){
 
 
 game()
-//console.log("Draws " + draws)
-//console.log("Player Score " + playerScore)
-//console.log("Computer Score " +computerScore)
+
 
 
 
