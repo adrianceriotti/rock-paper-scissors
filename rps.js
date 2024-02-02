@@ -1,3 +1,10 @@
+const rockBtn = document.querySelector('#rock')
+rockBtn.addEventListener('click', () => {
+playerChoice= "rock"
+game()
+})
+
+
 let playerScore = 0
 let computerScore = 0
 let draws = 0
@@ -6,8 +13,6 @@ let gameOptions = ["rock", "paper", "scissors"]
 function getComputerChoice(){
 return (gameOptions[(Math.floor(Math.random() * gameOptions.length))]);
 }
-// Prompt User for rock paper scissor 
-//let playerChoice = prompt("Rock, Paper, Or Scissors").toLowerCase();
 
 //function to determine winner and keep score
 function playRound(computerChoice, playerChoice){
@@ -46,26 +51,23 @@ else if(playerChoice === "scissors"){
 
 //function to play multiple rounds
 function game(){
-//for (var i= 0; i<5; i++)
 while (playerScore < 5 && computerScore < 5 ){
 let computerChoice = getComputerChoice();{
-let playerChoice = (prompt("Please pick Rock, Paper, or Scissors").toLowerCase())
 console.log(playRound(computerChoice, playerChoice));
 console.log(computerChoice)
 console.log("Draws " + draws)
 console.log("Player Score " + playerScore)
 console.log("Computer Score " +computerScore)
-
 if (playerScore === 5){
-    console.log("You are the Winner")
+    alert("You are the Winner")
     } else if (computerScore === 5)
-        console.log("GG Loser")
+        alert("GG Loser")
+break
 }
 }
 }
 
 
-game()
 
 
 
