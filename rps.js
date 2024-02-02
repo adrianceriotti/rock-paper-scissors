@@ -1,14 +1,29 @@
+// rock button listener
 const rockBtn = document.querySelector('#rock')
 rockBtn.addEventListener('click', () => {
 playerChoice= "rock"
 game()
 })
 
+// paper button listener
+const paperBtn = document.querySelector('#paper')
+paperBtn.addEventListener('click', () => {
+playerChoice= "paper"
+game()
+})
+
+// scissors button listener
+const scissorsBtn = document.querySelector('#scissors')
+scissorsBtn.addEventListener('click', () => {
+playerChoice= "scissors"
+game()
+})
 
 let playerScore = 0
 let computerScore = 0
 let draws = 0
 let gameOptions = ["rock", "paper", "scissors"]
+
 // Get computers choice
 function getComputerChoice(){
 return (gameOptions[(Math.floor(Math.random() * gameOptions.length))]);
