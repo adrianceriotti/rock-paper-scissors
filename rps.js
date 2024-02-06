@@ -1,3 +1,8 @@
+let playerScore = 0
+let computerScore = 0
+let draws = 0
+let gameOptions = ["rock", "paper", "scissors"]
+
 // rock button listener
 const rockBtn = document.querySelector('#rock')
 rockBtn.addEventListener('click', () => {
@@ -19,11 +24,6 @@ playerChoice= "scissors"
 game()
 })
 
-let playerScore = 0
-let computerScore = 0
-let draws = 0
-let gameOptions = ["rock", "paper", "scissors"]
-
 // Get computers choice
 function getComputerChoice(){
 return (gameOptions[(Math.floor(Math.random() * gameOptions.length))]);
@@ -33,33 +33,47 @@ return (gameOptions[(Math.floor(Math.random() * gameOptions.length))]);
 function playRound(computerChoice, playerChoice){
 if (playerChoice === computerChoice){
     draws++
-    return("This is a draw")
+    drawsBoard()
+    const roundWinner = document.querySelector("#roundWinner")
+    roundWinner.textContent= "This is a draw"
 }
 else if (playerChoice === "rock") {
     if(computerChoice=== "paper"){
     computerScore++
-    return("You Lose Paper beats Rock")  
+    computerScoreBoard()
+    const roundWinner = document.querySelector("#roundWinner")
+    roundWinner.textContent="You Lose Paper beats Rock"
 }else{
     playerScore++
-    return("You Win Rock beats Scissors")  
+    playerScoreBoard()
+    const roundWinner = document.querySelector("#roundWinner")
+    roundWinner.textContent= "You Win Rock beats Scissors"  
     }
 }
 else if (playerChoice === "paper"){
     if (computerChoice === "scissors"){
     computerScore++
-    return("You lose Scissors beats Paper")
+    computerScoreBoard()
+    const roundWinner = document.querySelector("#roundWinner")
+    roundWinner.textContent= "You lose Scissors beats Paper"
 }else{
     playerScore++
-    return("You win Paper beats Rock")
+    playerScoreBoard()
+    const roundWinner = document.querySelector("#roundWinner")
+    roundWinner.textContent= "You win Paper beats Rock"
     }
 }
 else if(playerChoice === "scissors"){
     if(computerChoice === "rock"){
         computerScore++
-        return("You lose Rock beats Scissors")
+        computerScoreBoard()
+        const roundWinner = document.querySelector("#roundWinner")
+        roundWinner.textContent= "You lose Rock beats Scissors"
 }else{
         playerScore++
-    return("You win Scissors beats Paper")
+        playerScoreBoard()
+        const roundWinner = document.querySelector("#roundWinner")
+        roundWinner.textContent= "You win Scissors beats Paper"
     }
 }
 }
@@ -74,16 +88,31 @@ console.log("Draws " + draws)
 console.log("Player Score " + playerScore)
 console.log("Computer Score " +computerScore)
 if (playerScore === 5){
-    alert("You are the Winner")
+    const winner = document.querySelector('#winner')
+    winner.textContent = "You are the Winner"
+    winner.setAttribute('style', 'color: pink; background: yellow; font-size: 50px; text-align: center')
     } else if (computerScore === 5)
-        alert("GG Loser")
+        winner.textContent = "GG Loser"
 break
 }
 }
 }
 
-
-
+// Dom Manipulation to display computer score
+function computerScoreBoard(){
+    const computerScoreBoard = document.querySelector('#computerScoreBoard')
+    computerScoreBoard.textContent = 'Computer Score: ' + computerScore
+}
+// Dom Manipulation to display player score
+function playerScoreBoard(){
+    const playerScoreBoard = document.querySelector('#playerScoreBoard')
+    playerScoreBoard.textContent ='Player Score: ' + playerScore
+}
+// Dom Manipulation to display draws score
+function drawsBoard(){
+    const drawsBoard = document.querySelector('#drawsBoard')
+    drawsBoard.textContent = 'Draws: ' + draws
+}
 
 
 
